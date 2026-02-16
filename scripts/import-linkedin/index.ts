@@ -129,9 +129,9 @@ async function importProfile() {
     return existing.id;
   }
 
-  // Extract email from websites or use a placeholder
+  // Extract email from websites or use null if not found
   const websites = profile.Websites ? profile.Websites.split(',') : [];
-  const email = websites.find(w => w.includes('@')) || 'bill Gleeson@example.com';
+  const email = websites.find(w => w.includes('@')) || null;
 
   // Create profile
   const { data, error } = await supabase
@@ -142,7 +142,8 @@ async function importProfile() {
       headline: profile.Headline,
       location: profile['Geo Location'],
       about: profile.Summary,
-      linkedin_url: 'https://linkedin.com/in/billgleeson'
+      // LinkedIn URL would need to be extracted from profile data or configured separately
+      linkedin_url: null
     })
     .select('id')
     .single();
@@ -182,7 +183,7 @@ async function importExperiences(profileId: string) {
       title: pos.Title,
       description: pos.Description || null,
       location: pos.Location || null,
-      started_on: formatDateForDb(parseLinkedInDate(pos['Started On'])) || new Date().toISOString().split('T')[0],
+      started_on: formatDateForDb(parseLinkedInDate(pos['Started On'])) || null,
       finished_on: formatDateForDb(parseLinkedInDate(pos['Finished On']))
     }))
     .reverse(); // LinkedIn CSV is in reverse chronological order
