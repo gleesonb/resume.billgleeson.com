@@ -1,0 +1,2 @@
+ALERT_PARAMETERS,QUERY_CONTEXT,SAVED_SEARCH_ID
+"{channels=[EMAIL, INAPP_NOTIFICATION], frequency=DAILY}","{keywords=director, workflowContext={savedSearch=urn:li:savedSearch:802321324}, searchLocation={com.linkedin.jobs.matching.SpecificSearchLocation={geoLocations=[{geo=urn:li:geo:104738515}]}}, facets={organizations={selectedValues=[urn:li:organization:27064182]}}}",802321324

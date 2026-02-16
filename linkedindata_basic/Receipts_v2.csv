@@ -1,0 +1,36 @@
+First Name,Last Name,Billing Country,Postal Code,Transaction Made At,Payment Method Type,Invoice Number,Description,Tax Amount,Sub Total,Total Amount,Currency Code
+Conoe,Stanley,ie,D01 V4A3,09/16/19 12:00 AM UTC,CREDIT_CARD,4952831064,Sales Solutions Bundle Tier 1,14.25,76.22,76.22,EUR
+Conoe,Stanley,ie,D01 V4A3,08/07/19 12:00 AM UTC,CREDIT_CARD,4861417504,Sales Solutions Bundle Tier 1,14.25,76.22,76.22,EUR
+Conoe,Stanley,ie,D01 V4A3,07/07/19 12:00 AM UTC,CREDIT_CARD,4785125174,Sales Solutions Bundle Tier 1,14.25,76.22,76.22,EUR
+Conoe,Stanley,ie,D01 V4A3,06/07/19 12:00 AM UTC,CREDIT_CARD,4712070754,Sales Solutions Bundle Tier 1,14.25,76.22,76.22,EUR
+Bill,Gleeson,gb,EH21 7PB,01/12/19 12:00 AM UTC,PAYPAL,4357215054,Bundle of Career subscription with Group and LIL,0.0,24.78,24.78,EUR
+Bill,Gleeson,gb,EH21 7PB,12/12/18 12:00 AM UTC,PAYPAL,4394375623,Bundle of Career subscription with Group and LIL,0.0,24.78,24.78,EUR
+Bill,Gleeson,gb,EH21 7PB,11/12/18 12:00 AM UTC,PAYPAL,4221528974,Bundle of Career subscription with Group and LIL,0.0,24.78,24.78,EUR
+William,Gleeson,gb,EH21 7PB,10/01/13 12:00 AM UTC,,1235585701,Ads recurring charges,0.0,3.0,3.0,GBP
+William,Gleeson,gb,EH21 7PB,09/12/13 12:00 AM UTC,,1015194901,Ads recurring charges,0.0,29.42,29.42,GBP
+William,Gleeson,gb,EH21 7PB,09/06/13 12:00 AM UTC,,949378301,Ads recurring charges,0.0,25.3,25.3,GBP
+William,Gleeson,gb,EH21 7PB,09/01/13 12:00 AM UTC,,890882201,Ads recurring charges,0.0,1.5,1.5,GBP
+William,Gleeson,gb,EH21 7PB,08/30/13 12:00 AM UTC,,873982301,Ads recurring charges,0.0,17.97,17.97,GBP
+William,Gleeson,gb,EH21 7PB,08/26/13 12:00 AM UTC,,82890538,Ads recurring charges,0.0,29.95,29.95,GBP
+William,Gleeson,gb,EH21 7PB,08/19/13 12:00 AM UTC,,81979434,Ads recurring charges,0.0,25.77,25.77,GBP
+William,Gleeson,gb,EH21 7PB,08/13/13 12:00 AM UTC,,81171920,Ads recurring charges,0.0,21.89,21.89,GBP
+William,Gleeson,gb,EH21 7PB,08/07/13 12:00 AM UTC,,80416917,Ads recurring charges,0.0,16.82,16.82,GBP
+William,Gleeson,gb,EH21 7PB,08/01/13 12:00 AM UTC,,79735288,Ads recurring charges,0.0,1.5,1.5,GBP
+William,Gleeson,gb,EH21 7PB,07/31/13 12:00 AM UTC,,79562830,Ads recurring charges,0.0,18.4,18.4,GBP
+William,Gleeson,gb,EH21 7PB,07/19/13 12:00 AM UTC,,78213715,Ads recurring charges,0.0,41.35,41.35,GBP
+William,Gleeson,gb,EH21 7PB,07/13/13 12:00 AM UTC,,77473956,Ads recurring charges,0.0,56.69,56.69,GBP
+William,Gleeson,gb,EH21 7PB,07/07/13 12:00 AM UTC,,76673848,Ads recurring charges,0.0,63.97,63.97,GBP
+William,Gleeson,gb,EH21 7PB,07/01/13 12:00 AM UTC,,75967557,Ads recurring charges,0.0,45.39,45.39,GBP
+William,Gleeson,gb,EH21 7PB,06/25/13 12:00 AM UTC,,75220345,Ads recurring charges,0.0,36.49,36.49,GBP
+William,Gleeson,gb,EH21 7PB,06/19/13 12:00 AM UTC,,74540962,Ads recurring charges,0.0,30.09,30.09,GBP
+William,Gleeson,gb,EH21 7PB,06/13/13 12:00 AM UTC,,73883306,Ads recurring charges,0.0,44.33,44.33,GBP
+William,Gleeson,gb,EH21 7PB,06/07/13 12:00 AM UTC,,73189177,Ads recurring charges,0.0,27.36,27.36,GBP
+William,Gleeson,gb,EH21 7PB,06/01/13 12:00 AM UTC,,72382254,Ads recurring charges,0.0,10.5,10.5,GBP
+William,Gleeson,gb,EH21 7PB,05/31/13 12:00 AM UTC,,72268744,Ads recurring charges,0.0,10.5,10.5,GBP
+William,Gleeson,gb,EH21 7PB,05/01/13 12:00 AM UTC,,68624379,Ads recurring charges,0.0,3.5,3.5,GBP
+William,Gleeson,gb,EH21 7PB,04/27/13 12:00 AM UTC,,68223414,Ads recurring charges,0.0,24.93,24.93,GBP
+William,Gleeson,gb,EH21 7PB,04/20/13 12:00 AM UTC,,67431044,Ads recurring charges,0.0,12.02,12.02,GBP
+William,Gleeson,gb,EH21 7PB,04/17/13 12:00 AM UTC,,67014695,Sales Navigator Plus subscription ,0.0,0.0,0.0,GBP
+William,Gleeson,gb,EH21 7PB,04/10/13 12:00 AM UTC,,66284646,Ads Post-pay Package,0.0,4.0,4.0,GBP
+William,Gleeson,gb,EH21 7PB,04/04/13 12:00 AM UTC,,65576078,Ads Post-pay Package,0.0,4.0,4.0,GBP
+,,,,05/16/11 12:00 AM UTC,,18735258,Original productID2 : jobListing,0,195.0,195.0,USD
