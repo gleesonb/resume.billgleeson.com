@@ -5,7 +5,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE candidate_profile (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name VARCHAR(255) NOT NULL,
-  email VARCHAR(255),
+  email VARCHAR(255) UNIQUE,
   title VARCHAR(255),
   headline TEXT,
   summary TEXT,
@@ -28,6 +28,7 @@ CREATE TABLE experiences (
   started_on DATE,
   finished_on DATE,
   is_current BOOLEAN DEFAULT FALSE,
+  CHECK (finished_on IS NULL OR finished_on > started_on),
   -- AI context fields
   why_joined TEXT,
   why_left TEXT,
@@ -188,6 +189,11 @@ CREATE POLICY "Allow service role full access to chat_history"
   TO service_role
   USING (true)
   WITH CHECK (true);
+
+CREATE POLICY "Allow public read access to chat_history"
+  ON chat_history FOR SELECT
+  TO public
+  USING (true);
 
 -- Function to update updated_at timestamp
 CREATE OR REPLACE FUNCTION update_updated_at_column()
