@@ -8,8 +8,8 @@ export interface CandidateProfile {
   headline: string;
   summary: string;
   location: string;
-  github_url: string | null;
-  linkedin_url: string | null;
+  github_url?: string;
+  linkedin_url?: string;
   availability_status: string;
 }
 
@@ -20,34 +20,32 @@ export interface Experience {
   description: string;
   location: string;
   started_on: string;
-  finished_on: string | null;
+  finished_on?: string;
   is_current: boolean;
   // AI context fields
-  why_joined: string | null;
-  why_left: string | null;
-  actual_contributions: string | null;
-  proudest_achievement: string | null;
-  challenges_faced: string | null;
-  lessons_learned: string | null;
+  why_joined?: string;
+  why_left?: string;
+  actual_contributions?: string;
+  proudest_achievement?: string;
+  challenges_faced?: string;
+  lessons_learned?: string;
 }
-
-export type SkillCategory = 'strong' | 'moderate' | 'gap';
 
 export interface Skill {
   id: string;
   skill_name: string;
-  category: SkillCategory;
-  evidence: string | null;
-  honest_notes: string | null;
+  category: 'strong' | 'moderate' | 'gap';
+  evidence?: string;
+  honest_notes?: string;
 }
 
 export interface Certification {
   id: string;
   name: string;
-  url: string | null;
-  authority: string | null;
-  started_on: string | null;
-  finished_on: string | null;
+  url?: string;
+  authority?: string;
+  started_on?: string;
+  finished_on?: string;
 }
 
 export interface GapWeakness {
@@ -57,15 +55,13 @@ export interface GapWeakness {
   why_its_a_gap: string;
 }
 
-export type ChatRole = 'user' | 'assistant';
-
 export interface ChatMessage {
-  role: ChatRole;
+  role: 'user' | 'assistant';
   content: string;
 }
 
 export interface FitAssessment {
-  verdict: string;
+  verdict: 'strong_fit' | 'worth_conversation' | 'probably_not';
   headline: string;
   opening: string;
   gaps: string[];
