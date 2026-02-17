@@ -20,3 +20,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Supabase CLI temp
+supabase/.temp/
+
