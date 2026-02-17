@@ -28,7 +28,7 @@ export function useJDAnalyzer(): AnalyzeJDResult {
     try {
       const { data, error: supabaseError } = await supabase.functions.invoke('analyze-jd', {
         body: {
-          job_description: jobDescription,
+          jobDescription: jobDescription,
         },
       });
 
