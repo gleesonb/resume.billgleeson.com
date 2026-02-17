@@ -1,0 +1,22 @@
+# Progress and notes files
+PICKUP_TOMORROW.md
+TOMORROW.md
+*.md.bak
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
