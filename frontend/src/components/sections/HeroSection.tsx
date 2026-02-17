@@ -13,7 +13,8 @@ const HeroSection = ({ profile }: HeroSectionProps) => {
     'Google',
   ];
 
-  const getAvailabilityBadgeColor = (status: string) => {
+  const getAvailabilityBadgeColor = (status: string | null) => {
+    if (!status) return 'bg-accent-amber/20 text-accent-amber border-accent-amber/30';
     switch (status.toLowerCase()) {
       case 'available':
       case 'open to opportunities':
@@ -47,6 +48,7 @@ const HeroSection = ({ profile }: HeroSectionProps) => {
 
       <div className="relative max-w-5xl mx-auto text-center z-10">
         {/* Status Badge */}
+        {profile.availability_status && (
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm mb-8 animate-fade-in">
           <span className={`relative flex h-2.5 w-2.5`}>
             <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
@@ -60,6 +62,7 @@ const HeroSection = ({ profile }: HeroSectionProps) => {
             {profile.availability_status}
           </span>
         </div>
+        )}
 
         {/* Name */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-playfair font-bold text-white mb-4 animate-fade-in">

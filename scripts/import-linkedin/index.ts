@@ -1,8 +1,13 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { parse } from 'csv-parse/sync';
 import { readFileSync } from 'fs';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Load environment variables
 dotenv.config();
@@ -86,7 +91,8 @@ function formatDateForDb(date: Date | null): string | null {
 
 // Read and parse CSV file
 function readCSV<T>(filename: string): T[] {
-  const filePath = join(__dirname, linkedinDataPath, filename);
+  // Resolve path relative to the script location, going up to parent directory
+  const filePath = join(__dirname, '..', linkedinDataPath, filename);
 
   try {
     const fileContent = readFileSync(filePath, 'utf-8');
@@ -121,7 +127,7 @@ async function importProfile() {
   const { data: existing } = await supabase
     .from('candidate_profile')
     .select('id')
-    .eq('full_name', fullName)
+    .eq('name', fullName)
     .maybeSingle();
 
   if (existing) {
@@ -133,17 +139,18 @@ async function importProfile() {
   const websites = profile.Websites ? profile.Websites.split(',') : [];
   const email = websites.find(w => w.includes('@')) || null;
 
-  // Create profile
+  // Create profile - matching the schema columns
   const { data, error } = await supabase
     .from('candidate_profile')
     .insert({
-      full_name: fullName,
+      name: fullName,
       email: email,
+      title: profile.Headline,
       headline: profile.Headline,
+      summary: profile.Summary,
       location: profile['Geo Location'],
-      about: profile.Summary,
-      // LinkedIn URL would need to be extracted from profile data or configured separately
-      linkedin_url: null
+      linkedin_url: null,
+      github_url: null
     })
     .select('id')
     .single();
@@ -172,19 +179,21 @@ async function importExperiences(profileId: string) {
   await supabase
     .from('experiences')
     .delete()
-    .eq('profile_id', profileId);
+    .eq('candidate_id', profileId);
 
   // Insert new experiences
   const experiences = positions
     .filter(pos => pos['Company Name'] && pos.Title)
-    .map(pos => ({
-      profile_id: profileId,
-      company: pos['Company Name'],
+    .map((pos, index) => ({
+      candidate_id: profileId,
+      company_name: pos['Company Name'],
       title: pos.Title,
       description: pos.Description || null,
       location: pos.Location || null,
       started_on: formatDateForDb(parseLinkedInDate(pos['Started On'])) || null,
-      finished_on: formatDateForDb(parseLinkedInDate(pos['Finished On']))
+      finished_on: formatDateForDb(parseLinkedInDate(pos['Finished On'])),
+      is_current: !pos['Finished On'] || pos['Finished On'].trim() === '',
+      display_order: index
     }))
     .reverse(); // LinkedIn CSV is in reverse chronological order
 
@@ -216,16 +225,17 @@ async function importSkills(profileId: string) {
   await supabase
     .from('skills')
     .delete()
-    .eq('profile_id', profileId);
+    .eq('candidate_id', profileId);
 
-  // Insert new skills
+  // Insert new skills - default to 'moderate' category
   const skillRecords = skills
     .filter(skill => skill.Name)
     .map(skill => ({
-      profile_id: profileId,
-      name: skill.Name,
-      category: null,
-      endorsement_count: 0
+      candidate_id: profileId,
+      skill_name: skill.Name,
+      category: 'moderate' as const, // Default to moderate, user can update via admin
+      evidence: null,
+      honest_notes: 'Imported from LinkedIn - please review and categorize'
     }));
 
   const { data, error } = await supabase
