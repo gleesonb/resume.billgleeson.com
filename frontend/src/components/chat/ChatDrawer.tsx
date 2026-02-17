@@ -6,6 +6,7 @@ import { ChatMessage as ChatMessageType } from '../../types';
 
 interface ChatDrawerProps {
   isOpen: boolean;
+  onOpen: () => void;
   onClose: () => void;
   onSendMessage: (message: string) => Promise<string>;
   initialMessages?: ChatMessageType[];
@@ -13,6 +14,7 @@ interface ChatDrawerProps {
 
 const ChatDrawer = ({
   isOpen,
+  onOpen,
   onClose,
   onSendMessage,
   initialMessages = [],
@@ -87,7 +89,7 @@ const ChatDrawer = ({
     // Floating chat button
     return (
       <button
-        onClick={onClose}
+        onClick={onOpen}
         className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-accent-teal hover:bg-accent-teal/90 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-105"
         aria-label="Open chat"
       >

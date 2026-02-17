@@ -129,6 +129,7 @@ function App() {
       {/* Chat Drawer */}
       <ChatDrawer
         isOpen={isChatOpen}
+        onOpen={() => setIsChatOpen(true)}
         onClose={() => setIsChatOpen(false)}
         onSendMessage={handleSendMessage}
         initialMessages={[]}
